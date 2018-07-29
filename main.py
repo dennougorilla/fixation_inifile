@@ -19,7 +19,5 @@ with open(path_w, mode='r+') as f:
 
 with open(path_w) as f:
     print(f.read())
-# 123-56o
-# ThreeFour
-# Four
+
     
