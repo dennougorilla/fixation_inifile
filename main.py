@@ -1,23 +1,13 @@
 import os
 
-if not os.path.isfile(path_w):
-    with open(path_w, mode='w') as f:
-        f.write(s)
+path = './GameUserSettings.ini'
 
-path = './test.txt'
 with open(path) as f:
-    while True:
-        s_line = f.readline()
-        if not s_line:
+    l = f.readlines()
+    if 'bDisableMouseAcceleration=False\n' in l:
+        index = l.index('bDisableMouseAcceleration=False\n')
+        del l[index]
+        l.insert(index, 'bDisableMouseAcceleration=True\n')
 
-with open(path_w, mode='w') as f:
-    f.write(s)
-
-with open(path_w, mode='r+') as f:
-    f.seek(3)
-    f.write('-')
-
-with open(path_w) as f:
-    print(f.read())
-
-    
+with open(path, mode='w') as f:
+    f.writelines(l)
