@@ -35,14 +35,16 @@ func writefile(filename string, texts []string) {
 }
 
 func main() {
-	var filename = `GameUserSettings.ini`
+	var filename = os.Getenv("LOCALAPPDATA") + `/FortniteGame/Saved/Config/WindowsClient/GameUserSettings.ini`
 	fmt.Println(filename)
 	var ret = readfile(filename)
 
 	for idx := range ret {
 		if ret[idx] == "bDisableMouseAcceleration=False" {
+			fmt.Println("exist bDisableMouseAcceleration=False :", idx)
 			ret[idx] = "bDisableMouseAcceleration=True"
-			fmt.Println(ret[idx])
+			fmt.Println("replace bDisableMouseAcceleration=True")
 		}
 	}
+	writefile(filename, ret)
 }
