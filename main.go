@@ -28,7 +28,7 @@ func writefile(filename string, texts []string) {
 	writer = bufio.NewWriter(file)
 
 	for idx := range texts {
-		writer.WriteString(texts[idx] + "\n")
+		writer.WriteString(texts[idx] + "\r\n")
 	}
 
 	writer.Flush()
@@ -36,7 +36,7 @@ func writefile(filename string, texts []string) {
 
 func main() {
 	var filename = os.Getenv("LOCALAPPDATA") + `/FortniteGame/Saved/Config/WindowsClient/GameUserSettings.ini`
-	fmt.Println(filename)
+	fmt.Println(os.Getenv("LOCALAPPDATA"))
 	var ret = readfile(filename)
 
 	for idx := range ret {

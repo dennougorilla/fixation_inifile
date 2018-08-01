@@ -1,7 +1,7 @@
 import os
 from time import sleep
 
-path = os.getenv('LOCALAPPDATA')+'/FortniteGame/Saved/Config/WindowsClient/GameUserSettings.ini'
+path = os.getenv('LOCALAPPDATA') + '/FortniteGame/Saved/Config/WindowsClient/GameUserSettings.ini'
 
 with open(path) as f:
     l = f.readlines()
